@@ -87,6 +87,19 @@ function drawGraph(container: HTMLElement, index: Record<string, Note>, d3: any)
     .attr("font-size", (options.fontSize ?? 1) * 15)
     .text((item: GraphNode) => item.title)
   node.append("title").text((item: GraphNode) => item.title)
+  // Give the label, circle, and the gap between them one continuous click/drag target.
+  node.each(function (this: SVGAElement) {
+    const bounds = this.getBBox()
+    d3.select(this)
+      .insert("rect", ":first-child")
+      .attr("class", "notebook-hit-target")
+      .attr("x", bounds.x - 6)
+      .attr("y", bounds.y - 6)
+      .attr("width", bounds.width + 12)
+      .attr("height", bounds.height + 12)
+      .attr("fill", "transparent")
+      .attr("pointer-events", "all")
+  })
 
   function navigate(event: MouseEvent | KeyboardEvent, item: GraphNode) {
     if (event.defaultPrevented || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey)
