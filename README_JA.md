@@ -8,7 +8,7 @@ Google Sites のホームページ: <https://sites.google.com/site/kosukemorikaw
 
 ## 最初に入っているページ
 
-`content/` に、トップページと Linear Algebra、Multivariate Data Analysis、Principal Component Analysis、Singular Value Decomposition の短いサンプルがあります。すべて「Starter example」と明示した出発点です。自分の勉強内容に合わせて編集・追加してください。
+`content/` に、トップページ `index.md` と「欠測データ解析」`missing-data-analysis.md` のみがあります。「欠測データ解析」は **TEST** と明示した動作確認用のページで、研究ノート本文はまだありません。
 
 ## まずブラウザーだけで更新する
 
@@ -32,8 +32,7 @@ Google Sites のホームページ: <https://sites.google.com/site/kosukemorikaw
 ノート内に、次のように書きます。
 
 ```markdown
-この方法の背景には [[Linear Algebra]] があります。
-[[Principal Component Analysis|PCA]] とも関係します。
+関連するノート: [[missing-data-analysis|欠測データ解析]]。
 ```
 
 リンク先と同じ名前のノートを用意すると、リンクとグラフに反映されます。グラフはリンクから作られます。内容の意味を自動判定して類似度を計算するものではありません。
@@ -60,7 +59,7 @@ description: このノートの短い説明。
 
 ## 関連するノート
 
-- [[Linear Algebra]]
+- [[missing-data-analysis|欠測データ解析]]
 ```
 
 ## 公開用のノートの置き場所
