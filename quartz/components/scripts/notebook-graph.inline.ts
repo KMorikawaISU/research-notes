@@ -33,7 +33,9 @@ function noteUrl(id: string): string {
 function drawGraph(container: HTMLElement, index: Record<string, Note>, d3: any): () => void {
   const options = JSON.parse(container.dataset.cfg ?? "{}")
   const current = normalizeSlug(document.body.dataset.slug ?? "index")
-  const entries = Object.entries(index).filter(([id]) => id !== "tags" && !id.startsWith("tags/"))
+  const entries = Object.entries(index).filter(
+    ([id]) => normalizeSlug(id) !== "index" && id !== "tags" && !id.startsWith("tags/"),
+  )
   const nodes: GraphNode[] = entries.map(([id, note], i) => ({
     id: normalizeSlug(id),
     title: note.title ?? id,
