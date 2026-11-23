@@ -1,16 +1,17 @@
 ---
 title: Research Notes
-description: 研究ノートのテストページ。
+description: Connected study notes in statistics and mathematics.
 ---
 
-研究ノートの公開に向けたテストページです。
+A notebook for organizing study notes and exploring their connections.
 
-## ノート
+## Notes
 
-- [[missing-data-analysis|欠測データ解析]] — **TEST**
+- [[missing-data-analysis|Missing Data Analysis]] — **TEST**
+- [[survey-sampling|Survey Sampling]] — **EXAMPLE**
 
-## 使い方
+## Explore the map
 
-ノート同士をリンクでつなぐと、Graph View に関係が表示されます。グラフの点を選ぶと、対応するノートを開けます。
+Links between notes appear in Graph View. Select a named node to read its note. Drag nodes to explore the graph, or scroll to zoom.
 
-[ホームページに戻る](https://sites.google.com/site/kosukemorikawa/home)
+[Return to the homepage](https://sites.google.com/site/kosukemorikawa/home)
