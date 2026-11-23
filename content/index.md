@@ -1,28 +1,16 @@
 ---
 title: Research Notes
-description: Connected study notes in statistics and mathematics.
+description: 研究ノートのテストページ。
 ---
 
-**Statistics, mathematics, and the connections between them.**
+研究ノートの公開に向けたテストページです。
 
-This notebook is a place to collect concepts, derivations, and reading notes, and to explore how they fit together.
+## ノート
 
-> [!note] A starting collection
-> The pages below are short starter examples that demonstrate linked notes and mathematical notation. They provide an initial structure for a growing notebook.
+- [[missing-data-analysis|欠測データ解析]] — **TEST**
 
-## Explore the notes
+## 使い方
 
-| Topic | Connection to explore |
-| --- | --- |
-| [[Linear Algebra]] | The geometry behind matrix methods |
-| [[Multivariate Data Analysis]] | Studying several variables together |
-| [[Principal Component Analysis]] | Variance, projection, and dimension reduction |
-| [[Singular Value Decomposition]] | A common language for matrices and PCA |
+ノート同士をリンクでつなぐと、Graph View に関係が表示されます。グラフの点を選ぶと、対応するノートを開けます。
 
-## Follow the connections
-
-Open a topic and follow its links to related ideas. **Graph View** shows these connections; the expand icon opens the full graph. You can drag the nodes, zoom, and select a note to read it.
-
-The graph is built from links between notes. Nearby nodes suggest connected topics; the distance is a visual arrangement rather than a numerical measure of conceptual similarity.
-
-[Return to Kosuke Morikawa's homepage](https://sites.google.com/site/kosukemorikawa/home)
+[ホームページに戻る](https://sites.google.com/site/kosukemorikawa/home)
