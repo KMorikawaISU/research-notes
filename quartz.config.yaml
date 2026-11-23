@@ -32,15 +32,15 @@ configuration:
         highlight: rgba(143, 159, 169, 0.15)
         textHighlight: '#fff23688'
       darkMode:
-        light: '#161618'
-        lightgray: '#393639'
-        gray: '#646464'
-        darkgray: '#d4d4d4'
-        dark: '#ebebec'
-        secondary: '#7b97aa'
-        tertiary: '#84a59d'
-        highlight: rgba(143, 159, 169, 0.15)
-        textHighlight: '#b3aa0288'
+        light: '#202126'
+        lightgray: '#3b3e48'
+        gray: '#9a9eac'
+        darkgray: '#d1d3dc'
+        dark: '#f0f1f5'
+        secondary: '#aeb8ff'
+        tertiary: '#8fc8b6'
+        highlight: rgba(174, 184, 255, 0.13)
+        textHighlight: '#75621e'
   links:
     markdownLinkResolution: shortest
   contentIndex:
@@ -111,10 +111,29 @@ plugins:
     priority: 10
   options:
     localGraph:
-      depth: 1
+      depth: -1
       showTags: false
+      drag: true
+      zoom: true
+      scale: 1
+      linkDistance: 180
+      repelForce: 0.8
+      centerForce: 0.2
+      fontSize: 1
+      opacityScale: 4.75
+      enableRadial: false
     globalGraph:
+      depth: -1
       showTags: false
+      drag: true
+      zoom: true
+      scale: 1
+      linkDistance: 180
+      repelForce: 0.8
+      centerForce: 0.2
+      fontSize: 1
+      opacityScale: 4.75
+      enableRadial: false
 - source: '@quartz-community/search'
   enabled: true
   layout:
