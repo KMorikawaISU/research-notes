@@ -1,3 +1,225 @@
 @use "./variables.scss" as *;
 
-// put your custom CSS here!
+// A reading pane beside an always-visible map of the notebook.
+:root {
+  --notebook-panel: #f3f4f7;
+  --notebook-map: #f8f9fc;
+}
+
+:root[saved-theme="dark"] {
+  --notebook-panel: #18191e;
+  --notebook-map: #191b21;
+}
+
+.page {
+  max-width: none;
+}
+
+.page > #quartz-body {
+  min-height: 100svh;
+  column-gap: 0;
+  row-gap: 0;
+
+  & > .center {
+    grid-area: grid-center;
+    box-sizing: border-box;
+    min-width: 0;
+    padding: 1.5rem 2rem;
+  }
+
+  & > .center > article,
+  & > .center > .page-header,
+  & > .center > .page-footer,
+  & > .center > hr {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  & > .center .page-header {
+    margin-top: 0;
+  }
+
+  & > .sidebar.left {
+    background: var(--notebook-panel);
+    border-right: 1px solid var(--lightgray);
+    padding: 1.5rem 1rem;
+  }
+
+  & > .sidebar.right {
+    background: var(--notebook-map);
+    border-left: 1px solid var(--lightgray);
+    padding: 1.5rem 1rem 1rem;
+    gap: 1rem;
+    min-width: 0;
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+
+  & > .sidebar.right > .graph {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    min-height: 0;
+    max-height: none;
+  }
+
+  & > .sidebar.right > .graph > h3 {
+    font-size: 0.95rem;
+    color: var(--darkgray);
+  }
+
+  & > .sidebar.right > .graph > .graph-outer {
+    flex: 1 1 auto;
+    height: auto;
+    min-height: min(360px, 50svh);
+    margin-top: 0.75rem;
+    border: 0;
+  }
+
+  & > .sidebar.right > .toc {
+    display: none;
+  }
+
+  & > .sidebar.right > .backlinks {
+    flex: 0 0 auto;
+    max-height: 8rem;
+    overflow: auto;
+    border-top: 1px solid var(--lightgray);
+    padding-top: 0.75rem;
+  }
+
+  & > footer {
+    box-sizing: border-box;
+    padding: 0 2rem 1rem;
+  }
+}
+
+.graph-container svg,
+.global-graph-container svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+}
+
+.notebook-link {
+  stroke: var(--gray);
+  stroke-width: 1.25;
+  opacity: 0.65;
+}
+
+.notebook-node {
+  cursor: pointer;
+  outline: none;
+
+  circle {
+    fill: var(--tertiary);
+    stroke: var(--notebook-map);
+    stroke-width: 2;
+  }
+
+  &.current circle {
+    fill: var(--secondary);
+  }
+
+  text {
+    fill: var(--dark);
+    font-family: var(--bodyFont);
+    paint-order: stroke;
+    stroke: var(--notebook-map);
+    stroke-width: 4;
+    stroke-linejoin: round;
+    pointer-events: none;
+  }
+
+  &:focus circle,
+  &:hover circle {
+    stroke: var(--dark);
+  }
+}
+
+@media (min-width: 1200px) {
+  .page > #quartz-body {
+    grid-template-columns: 220px minmax(440px, 0.95fr) minmax(400px, 1fr);
+    grid-template-rows: 1fr auto;
+    grid-template-areas:
+      "grid-sidebar-left grid-center grid-sidebar-right"
+      "grid-sidebar-left grid-footer grid-sidebar-right";
+
+    & > .sidebar {
+      height: 100svh;
+      position: sticky;
+      top: 0;
+    }
+
+    & > .sidebar.right {
+      overflow-y: auto;
+    }
+  }
+}
+
+@media (min-width: 801px) and (max-width: 1199px) {
+  .page > #quartz-body {
+    padding: 0;
+    grid-template-columns: 200px minmax(0, 1fr);
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+      "grid-sidebar-left grid-center"
+      "grid-sidebar-left grid-sidebar-right"
+      "grid-sidebar-left grid-footer";
+
+    & > .sidebar.right {
+      position: static;
+      height: auto;
+      min-height: 0;
+      border-left: 0;
+      border-top: 1px solid var(--lightgray);
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .page > #quartz-body {
+    padding: 0;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto auto auto;
+    grid-template-areas:
+      "grid-sidebar-left"
+      "grid-center"
+      "grid-sidebar-right"
+      "grid-footer";
+
+    & > .sidebar.left {
+      position: static;
+      height: auto;
+      padding: 1rem;
+      border-right: 0;
+      border-bottom: 1px solid var(--lightgray);
+    }
+
+    & > .center {
+      padding: 1.5rem 1rem;
+    }
+
+    & > .sidebar.right {
+      position: static;
+      height: auto;
+      min-height: 0;
+      border-left: 0;
+      border-top: 1px solid var(--lightgray);
+    }
+
+    & > footer {
+      padding: 1rem;
+    }
+  }
+}
+
+@media (max-width: 1199px) {
+  .page > #quartz-body > .sidebar.right > .graph > .graph-outer {
+    flex: none;
+    height: 55svh;
+    min-height: 320px;
+  }
+}
