@@ -1,13 +1,11 @@
 ---
-title: 欠測データ解析
-aliases:
-  - Missing Data Analysis
+title: Missing Data Analysis
 tags:
   - test
 ---
 
-**TEST — 動作確認用のページです。**
+**TEST — A placeholder for checking the notebook.**
 
-研究ノート本文はまだありません。
+Research notes will be added here later.
 
-[[index|Research Notes]] に戻る。
+[[index|Return to Research Notes]].
